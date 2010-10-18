@@ -25,7 +25,7 @@ Initial Public Release
 
 == License ==
 
-The Hidden Login plugin was developed by Andrew Terris, and is provided with out warranty under the GPLv2 License. More info and other plugins at: http://xentek.net
+The Hidden Login plugin was developed by Andrew Terris, and is provided with out warranty under the GPLv2 License.
 
 Copyright 2010 Andrew Terris
 

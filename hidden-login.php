@@ -3,7 +3,7 @@
 Plugin Name: Hidden Login
 Plugin URI: http://www.andrewterris.com/projects/hidden-login/
 Description: Hidden Login provides easy and discrete access to the admin functionality of your site.  Pressing the set keystroke combination will activate Hidden Login, either displaying a modal login window or redirected to the admin area if you are already logged in.  Visit the Hidden Login Options to set what pages are enabled (All Pages or Homepage Only) and set your desired activation keystroke combination.
-Version: 1.0
+Version: 0.9
 Author: Andrew Terris
 Author URI: http://www.andrewterris.com
 */
