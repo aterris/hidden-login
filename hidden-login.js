@@ -78,8 +78,14 @@ function hidden_login(first_command,second_command,key,logged_in)
 		}
 		else //If Closed, Open Login Window
 		{		
+			//Use Document Width if Greater Than Window Width
+			if(jQuery(window).width()<jQuery(document).width())
+				$maskWidth = jQuery(document).width();
+			else
+				$maskWidth = jQuery(window).width();
+				
 			//Set Mask Size
-			jQuery('#hidden-login-mask').css({'width':jQuery(window).width(),'height':jQuery(document).height()}); 
+			jQuery('#hidden-login-mask').css({'width':$maskWidth,'height':jQuery(document).height()}); 
 			  
 			//Show Mask     
 			jQuery('#hidden-login-mask').fadeTo(200,0.8);         
@@ -92,7 +98,7 @@ function hidden_login(first_command,second_command,key,logged_in)
 			jQuery('#hidden-login-window').fadeIn(200);
 			
 			//Set Focus
-			jQuery('#hidden-login-user').focus();
+			jQuery('#user_login').focus();
 		}
 	}
       
@@ -105,8 +111,15 @@ function hidden_login(first_command,second_command,key,logged_in)
 	//Handle Window Resizing
 	jQuery(window).resize(function () 
 	{
+		//Use Document Width if Greater Than Window Width (Set Mask to 0px width to get actual document width)
+		jQuery('#hidden-login-mask').css({'width':'0px'});
+		if(jQuery(window).width()<jQuery(document).width())
+				$maskWidth = jQuery(document).width();
+		else
+				$maskWidth = jQuery(window).width();
+				
 		//Set Mask Size
-		jQuery('#hidden-login-mask').css({'width':jQuery(window).width(),'height':jQuery(document).height()});
+		jQuery('#hidden-login-mask').css({'width':$maskWidth,'height':jQuery(document).height()});
 
 		//Position Div
 		jQuery('#hidden-login-window').css('top', jQuery(window).height()/2-jQuery('#hidden-login-window').height()/2);

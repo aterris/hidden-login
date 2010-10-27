@@ -2,17 +2,20 @@
 /* Andrew Terris */
 
 /* Mask */
-#hidden-login-mask {
+#hidden-login-mask 
+{
   position:absolute;
+  top:0px;
+  left:0px;
+  display:none;
   z-index:9000;
   background-color:#FFF;
-  display:none;
-  top:0px;
 }
 
   
 /* Window */  
-#hidden-login-window {
+#hidden-login-window 
+{
   position:absolute;
   height:200px;
   width:320px;
@@ -23,7 +26,8 @@
 
 
 /* Form */
-#hidden-login-window form{
+#hidden-login-window form
+{
 	margin-left:8px;
 	padding:16px 16px 40px 16px;
 	font-weight:normal;
@@ -39,14 +43,14 @@
 	box-shadow:rgba(200,200,200,1) 0 4px 18px;
 }
 
-#hidden-login-user,#hidden-login-password
+#hidden-login-window #user_login,#hidden-login-window #user_pass
 {
 	font-size:24px;
 	width:97%;
 	padding:3px;
 	margin-top:2px;
 	margin-right:6px;
-	margin-bottom:26px;
+	margin-bottom:16px;
 	border:1px solid #e5e5e5;
 	background:#fbfbfb;
 	-moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
@@ -55,17 +59,36 @@
 	line-height:normal;
 }
 
-#hidden-login-window form p{margin-bottom:0;}
-#hidden-login-window form .submit{float:right;}
-#hidden-login-window label{color:#777;font-size:13px;}
-#hidden-login-window input{color:#555;font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;}
+#hidden-login-window p
+{
+	margin:0px;
+	padding:0px;
+	height:70px;
+}
+
+#hidden-login-window label
+{
+	color:#777;font-size:13px;
+}
+
+#hidden-login-window input
+{
+	color:#555;
+	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+}
 
 
 /* Submit Button */
-#hidden-login-window .hidden-login-button
+#hidden-login-window .submit
+{
+	float:right;
+}
+#hidden-login-window .button-primary
 {
 	
 	padding:3px 10px;
+	height:22px;
+	line-height:normal;
 	border:none;
 	font-size:12px;
 	border-width:1px;
@@ -84,13 +107,13 @@
 	text-shadow:rgba(0,0,0,0.3) 0 -1px 0;
 }
 
-#hidden-login-window .hidden-login-button:hover
+#hidden-login-window .button-primary:hover
 {
 	border-color:#13455b;
 	color:#eaf2fa;
 }
 
-#hidden-login-window .hidden-login-button:active
+#hidden-login-window .button-primary:active
 {
 	background:#21759b url(../hidden-login/images/button-grad-active.png) repeat-x scroll left top;
 	color:#eaf2fa;

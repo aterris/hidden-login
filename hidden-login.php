@@ -3,7 +3,7 @@
 Plugin Name: Hidden Login
 Plugin URI: http://www.andrewterris.com/projects/hidden-login/
 Description: Hidden Login provides easy and discrete access to the admin functionality of your site.  Pressing the set keystroke combination will activate Hidden Login, either displaying a modal login window or redirected to the admin area if you are already logged in.  Visit the Hidden Login Options to set what pages are enabled (All Pages or Homepage Only) and set your desired activation keystroke combination.
-Version: 0.9
+Version: 1.0
 Author: Andrew Terris
 Author URI: http://www.andrewterris.com
 */
@@ -58,23 +58,30 @@ function hidden_login_js_call()
 function hidden_login_html()
 {
 	?>
-	<!-- Hidden Login Window -->
+    <!-- Hidden Login Window -->
 	<div id="hidden-login-window">
-		<form name="hidden-login-form" id="hidden-login-form" action="<?php bloginfo('wpurl'); ?>/wp-login.php" method="post"> 
-		<p> 
-			<label>Username<br /> 
-			<input type="text" name="log" id="hidden-login-user" class="input" value="" size="20" tabindex="10" /></label> 
-		</p> 
-		<p> 
-			<label>Password<br /> 
-			<input type="password" name="pwd" id="hidden-login-password" class="input" value="" size="20" tabindex="20" /></label> 
-		</p> 
-		<p class="submit"> 
-			<input type="submit" name="wp-submit" id="wp-submit" class="hidden-login-button" value="Log In" tabindex="100" /> 
-			<input type="hidden" name="redirect_to" value="<?php bloginfo('wpurl'); ?>/wp-admin/" /> 
-			<input type="hidden" name="testcookie" value="1" /> 
-		</p> 
-        </form> 
+	    <form name="loginform" id="loginform" action="<?php echo site_url('wp-login.php', 'login_post') ?>" method="post">
+	<p>
+		<label><?php _e('Username') ?><br />
+		<input type="text" name="log" id="user_login" class="input" value="<?php echo esc_attr($user_login); ?>" size="20" tabindex="10" /></label>
+	</p>
+	<p>
+		<label><?php _e('Password') ?><br />
+		<input type="password" name="pwd" id="user_pass" class="input" value="" size="20" tabindex="20" /></label>
+	</p>
+	<?php do_action('login_form'); ?>
+
+	<p class="submit">
+		<input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="<?php esc_attr_e('Log In'); ?>" tabindex="100" />
+<?php	if ( $interim_login ) { ?>
+		<input type="hidden" name="interim-login" value="1" />
+<?php	} else { ?>
+		<input type="hidden" name="redirect_to" value="<?php bloginfo('wpurl'); ?>/wp-admin/" />
+<?php 	} ?>
+		<input type="hidden" name="testcookie" value="1" />
+	</p>
+</form>
+
 	</div><!-- End Hidden Login Window -->
         
 	<!-- Hidden Login Mask -->	
