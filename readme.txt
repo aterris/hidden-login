@@ -1,5 +1,5 @@
 === Hidden Login ===
-Contributors: Andrew Terris
+Contributors: aterris
 Tags: hidden, secret, quick, admin, login, signin, modal
 Requires at least: 3.0
 Tested up to: 3.1
