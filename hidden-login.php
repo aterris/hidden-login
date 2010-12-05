@@ -47,7 +47,7 @@ function hidden_login_js_call()
     <script>
 	jQuery(document).ready(function() 
 	{
-		hidden_login('<?php echo get_option('hidden_login_command1'); ?>','<?php echo get_option('hidden_login_command2'); ?>','<?php echo get_option('hidden_login_keystroke'); ?>',<?php echo $logged_in ?>);
+		hidden_login('<?php echo get_option('hidden_login_command1'); ?>','<?php echo get_option('hidden_login_command2'); ?>','<?php echo get_option('hidden_login_keystroke'); ?>',<?php echo $logged_in ?>,'<?php echo wp_login_url(); ?>');
 	});  
 	</script>
     

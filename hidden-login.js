@@ -2,7 +2,7 @@
 /* Andrew Terris */
 
 //Setup Hidden Login
-function hidden_login(first_command,second_command,key,logged_in)
+function hidden_login(first_command,second_command,key,logged_in,admin_url)
 {
 	
 	jQuery(document).keydown(function(e) 
@@ -56,7 +56,7 @@ function hidden_login(first_command,second_command,key,logged_in)
 			if(logged_in)
 			{
 				//Redirect To Admin
-				window.location.href = '/wp-admin/';
+				window.location.href = $admin_url;
 			}
 			else
 			{
