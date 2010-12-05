@@ -2,7 +2,7 @@
 /* Andrew Terris */
 
 //Setup Hidden Login
-function hidden_login(first_command,second_command,key,logged_in,admin_url)
+function hidden_login(first_command,second_command,key,logged_in,redirect_url)
 {
 	
 	jQuery(document).keydown(function(e) 
@@ -12,16 +12,13 @@ function hidden_login(first_command,second_command,key,logged_in,admin_url)
 		switch(first_command)
 		{
 			case 'ctrl':
-				if(e.ctrlKey)
-				command1=true;
+				if(e.ctrlKey) { command1=true; }
 				break;
 			case 'shift':
-				if(e.shiftKey)
-				command1=true;
+				if(e.shiftKey) { command1=true; }
 				break;
 			case 'alt':
-				if(e.altKey)
-				command1=true;
+				if(e.altKey) { command1=true; }
 				break;
 			default:
 				break;
@@ -32,16 +29,13 @@ function hidden_login(first_command,second_command,key,logged_in,admin_url)
 		switch(second_command)
 		{
 			case 'ctrl':
-				if(e.ctrlKey)
-				command2=true;
+				if(e.ctrlKey) { command2=true; }
 				break;
 			case 'shift':
-				if(e.shiftKey)
-				command2=true;
+				if(e.shiftKey) { command2=true; }
 				break;
 			case 'alt':
-				if(e.altKey)
-				command2=true;
+				if(e.altKey) { command2=true; }
 				break;
 			case '':
 				command2=true;
@@ -56,21 +50,21 @@ function hidden_login(first_command,second_command,key,logged_in,admin_url)
 			if(logged_in)
 			{
 				//Redirect To Admin
-				window.location.href = $admin_url;
+				window.location.href = redirect_url;
 			}
 			else
 			{
 				//Toggle Hidden Login Window
 				hidden_login_toggle();
 			}
-           	return false;
-       	}
-    });
+			return false;
+		}
+	});
 	
 	//Toggle Hidden Login Window
 	function hidden_login_toggle()
 	{    
-       	//If Open, Close Login window
+		//If Open, Close Login window
 		if(jQuery('#hidden-login-window').is(":visible"))
 		{
 			jQuery('#hidden-login-window').fadeOut(200);
@@ -79,13 +73,18 @@ function hidden_login(first_command,second_command,key,logged_in,admin_url)
 		else //If Closed, Open Login Window
 		{		
 			//Use Document Width if Greater Than Window Width
+			var maskWidth;			
 			if(jQuery(window).width()<jQuery(document).width())
-				$maskWidth = jQuery(document).width();
+			{
+				maskWidth = jQuery(document).width();
+			}			
 			else
-				$maskWidth = jQuery(window).width();
+			{
+				maskWidth = jQuery(window).width();
+			}
 				
 			//Set Mask Size
-			jQuery('#hidden-login-mask').css({'width':$maskWidth,'height':jQuery(document).height()}); 
+			jQuery('#hidden-login-mask').css({'width':maskWidth,'height':jQuery(document).height()}); 
 			  
 			//Show Mask     
 			jQuery('#hidden-login-mask').fadeTo(200,0.8);         
@@ -102,24 +101,30 @@ function hidden_login(first_command,second_command,key,logged_in,admin_url)
 		}
 	}
       
-   	//Click on Mask - Close Window 
-   	jQuery('#hidden-login-mask').click(function () 
+	//Click on Mask - Close Window 
+	jQuery('#hidden-login-mask').click(function () 
 	{  
-       	hidden_login_toggle();
-   	});  
+		hidden_login_toggle();
+	});  
 	
 	//Handle Window Resizing
 	jQuery(window).resize(function () 
 	{
 		//Use Document Width if Greater Than Window Width (Set Mask to 0px width to get actual document width)
 		jQuery('#hidden-login-mask').css({'width':'0px'});
+		
+		var maskWidth;
 		if(jQuery(window).width()<jQuery(document).width())
-				$maskWidth = jQuery(document).width();
+		{
+			maskWidth = jQuery(document).width();
+		}
 		else
-				$maskWidth = jQuery(window).width();
-				
+		{
+			maskWidth = jQuery(window).width();
+		}
+		
 		//Set Mask Size
-		jQuery('#hidden-login-mask').css({'width':$maskWidth,'height':jQuery(document).height()});
+		jQuery('#hidden-login-mask').css({'width':maskWidth,'height':jQuery(document).height()});
 
 		//Position Div
 		jQuery('#hidden-login-window').css('top', jQuery(window).height()/2-jQuery('#hidden-login-window').height()/2);
